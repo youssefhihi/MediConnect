@@ -25,4 +25,8 @@ class Doctor extends Model
     {
         return $this->hasMany(Appointement::class,'doctor_id');
     }
+    public function consultation()
+    {
+        return $this->hasMany(Consultation::class,'doctor_id');
+    }
 }

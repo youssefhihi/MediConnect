@@ -24,5 +24,9 @@ class Patient extends Model
     {
         return $this->haseMany(Comment::class,'patient_id');
     }
+    public function consultation()
+        {
+            return $this->hasMany(Consultation::class,'patient_id');
+        }
 
 }

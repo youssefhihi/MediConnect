@@ -14,8 +14,21 @@ class consultation extends Model
         'patient_id',
     ];
 
-            public function medications()
+      
+        public function patient()
         {
-            return $this->belongsToMany(Medication::class);
+            return $this->belongsTO(Patient::class,'patient_id');
+        }
+        public function doctor()
+        {
+            return $this->belongsTO(Doctor::class,'doctor_id');
+        }
+        public function appointment()
+        {
+            return $this->belongsTO(Appointment::class,'appointment_id');
+        }
+        public function medications()
+        {
+            return $this->belongsToMany(Medication::class, 'consultation_medication', 'consultation_id', 'medication_id');
         }
 }

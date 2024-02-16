@@ -35,7 +35,7 @@
 			</li>
 			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Contact</a></li>
             <div class=" pt-3 pl-10">
-                <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="#">Appointment</a>
+                <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="{{route('certificate.show')}}">Get Your Certificate</a>
             </div>
         </ul>
         

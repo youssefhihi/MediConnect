@@ -59,13 +59,13 @@ class ConsultationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(consultation $consultation)
+    public function show()
     {
        $patientId = Auth::user()->patient->id;
 
-       $consultation = Consultation::where('patient_id', $patientId)->get();
+       $consultations = Consultation::where('patient_id', $patientId)->get();
 
-       return view('patient.certificate', compact('consultation'));
+       return view('patient.certificate', compact('consultations'));
     }
 
     /**

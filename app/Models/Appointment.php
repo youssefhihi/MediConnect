@@ -22,4 +22,10 @@ class Appointment extends Model
     {
         return $this->belongsTo(Doctor::class,'doctor_id');
     }
+
+    public function consultation()
+    {
+        return $this->hasOne(Consultation::class,'appointment_id');
+    }
+  
 }

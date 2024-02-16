@@ -13,6 +13,8 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ListFavoritesController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\InvoiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
+
+Route::get('/invoice', [InvoiceController::class, 'generate']);
 
 Route::middleware(['auth'])->group(function () { 
                     //profile
@@ -65,7 +70,7 @@ Route::middleware(['auth', 'role:patient'])->group(function () {
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/listFavorites', [ListFavoritesController::class, 'store'])->name('favorite.store');
     Route::delete('/listFavorites', [ListFavoritesController::class, 'destroy'])->name('favorite.delete');
-    Route::get('/patient/certificate', [ConsultationController::class, 'show'])->name('consultations.show');
+    Route::get('/patient/certificate', [ConsultationController::class, 'show'])->name('certificate.show');
   
 });
 
