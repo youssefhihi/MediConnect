@@ -1,13 +1,6 @@
 
 <x-patient-layout>
-      
-<!-- <section class="bg-gray-900 text-white py-16">
-    <div class="container mx-auto px-4">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Our Clinic</h1>
-        <p class="text-lg md:text-xl mb-8">Get the best healthcare services from our experienced doctors.</p>
-        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Book Appointment</a>
-    </div>
-</section> -->
+
 <div class=" bg-gray-50 flex items-center">
 <section class="w-full bg-cover bg-center py-32" style="background-image: url('{{asset('imgs/bg-home.jpg')}}');">
 		<div class="container mx-auto text-center text-white">
@@ -36,14 +29,6 @@
         </div>
 </section>
            
-                <!-- @foreach ($doctors as $doctor)
-                <div class="mb-4">
-                    <p class="text-lg font-semibold">Name: {{ $doctor->user->name }}</p>
-                    <p class="text-gray-600">Email: {{ $doctor->user->email }}</p>
-                    <p class="text-gray-600">Specialty: {{ $doctor->specialty->name }}</p>
-                </div>
-                @endforeach -->
-            
-
+                
                
 </x-patient-layout>

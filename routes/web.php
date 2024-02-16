@@ -29,7 +29,7 @@ use App\Http\Controllers\InvoiceController;
 
 
 
-Route::get('/invoice', [InvoiceController::class, 'generate']);
+Route::get('/invoice/{certificate}', [InvoiceController::class, 'generate'])->name('exporte');
 
 Route::middleware(['auth'])->group(function () { 
                     //profile
@@ -54,6 +54,7 @@ Route::middleware(['auth', 'role:doctor'])->group(function () {
                //consultation
      Route::get('/dashboard/consultation/{appointment}', [ConsultationController::class, 'index'])->name('consultation');
      Route::post('/dashboard/consultation/AddConsultation', [ConsultationController::class, 'store'])->name('consultation.store');
+     Route::get('/dashboard/medical-records', [ConsultationController::class, 'showForDoctor'])->name('records.show');
 
             Route::get('/dashboard', function () {
                 return view('doctor.dashboard');
@@ -70,7 +71,8 @@ Route::middleware(['auth', 'role:patient'])->group(function () {
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/listFavorites', [ListFavoritesController::class, 'store'])->name('favorite.store');
     Route::delete('/listFavorites', [ListFavoritesController::class, 'destroy'])->name('favorite.delete');
-    Route::get('/patient/certificate', [ConsultationController::class, 'show'])->name('certificate.show');
+    Route::get('/certificate', [ConsultationController::class, 'show'])->name('certificate.show');
+    Route::get('/favoritesDoctors', [ListFavoritesController::class, 'show'])->name('favorites.show');
   
 });
 

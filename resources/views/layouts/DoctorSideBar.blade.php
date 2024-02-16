@@ -81,7 +81,7 @@
                  Appointments
                 </div>
             </a>
-            <a href="#" class =  "hover:bg-white w-full text-white hover:text-black dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">               
+            <a href="{{route('records.show')}}" class =  "hover:bg-white w-full text-white hover:text-black dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">               
                 <i class="fas fa-notes-medical w-4 h-4"></i>                 
                 <div>
                     Medical Records

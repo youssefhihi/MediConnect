@@ -29,4 +29,8 @@ class Doctor extends Model
     {
         return $this->hasMany(Consultation::class,'doctor_id');
     }
+    public function favorites()
+        {
+            return $this->hasMany(Favorite::class);
+        }
 }

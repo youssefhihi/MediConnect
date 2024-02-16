@@ -119,6 +119,17 @@
                                                                         <x-input-label for="name" :value="__('New name')" />
                                                                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="$Medication->name" />
                                                                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                                                        <select id="specialties" name="speciality_id" class="block mt-1 w-full rounded-md" >
+                                                        
+                                                                            @foreach ($specialities as $speciality)
+                                                                                @if(in_array($Medication->specialty->name, [$speciality->name]))
+                                                                                    <option value="{{ $speciality->id }}" selected>{{ $speciality->name }}</option>
+                                                                                @else
+                                                                                    <option value="{{ $speciality->id }}">{{ $speciality->name }}</option>
+                                                                                @endif
+                                                                            @endforeach
+
+                                                                            </select>
                                                                     </div>
                                                                     <div class="flex space-x-14 justify-end mt-5">
                                                                         <button type="button" onclick="CloseEditMedication({{ $Medication->id }})" class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-red-600"> Close</button>

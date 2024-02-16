@@ -1,12 +1,12 @@
-<x-patient-layout>
-<h1 class=" mt-8 text-4xl font-semibold text-center ">Certificate Medical</h1>
+<x-doctor-layout>
+<div class = "content ml-12 transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 ">
+<h1 class=" text-4xl font-semibold text-center ">Certificate Medical</h1>
 <div class=" mt-10 flex flex-col gap-10">
  @foreach ($consultations as $consultation )
-
 <!-- component -->
-<div class="min-h-screen bg-gray-100 flex items-center justify-center w-full">
-  <div class="px-10 w-full">
-    <div class="bg-white max-w-2xl mx-auto rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
+<div class="min-h-screen  ">
+  <div class="px-10 ">
+    <div class="bg-white max-w-3xl  mx-auto rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
         <div class="flex justify-between">
         <div class="w-16 h-16  rounded-full flex items-center justify-center "><img src="{{asset('imgs/logo.png')}}" alt=""></div>
         <p class="mt-4 text-gray-600"><span class=" underline font-bold">Date:</span> {{$consultation->created_at}}</p>
@@ -28,9 +28,9 @@
         <p class="ml-2"><i class="fas fa-pills"></i> {{$medication->name}}</p>  
         @endforeach
         </div>
-        <div class="flex justify-end items-center">
+        <div class="flex justify-end     items-center">
          
-          <a href="{{route('exporte',['certificate' => $consultation->id ])}}" class="p-2 bg-blue-600 rounded-xl text-white hover:bg-white hover:text-blue-600 border  border-blue-600 cursor-pointer"><p>Exporte</p></a>
+          <div class="p-2 bg-blue-600 rounded-xl text-white hover:bg-white hover:text-blue-600 border  border-blue-600 cursor-pointer"><p>Exporte</p></div>
         </div>
       </div>
     </div>
@@ -38,4 +38,6 @@
 </div>
 @endforeach
 </div>
-</x-patient-layout>
+</div>
+
+</x-doctor-layout>

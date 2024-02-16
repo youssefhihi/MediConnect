@@ -65,7 +65,15 @@ class ConsultationController extends Controller
 
        $consultations = Consultation::where('patient_id', $patientId)->get();
 
-       return view('patient.certificate', compact('consultations'));
+     return view('patient.certificate', compact('consultations'));
+    }
+    public function showForDoctor()
+    {
+       $doctorId = Auth::user()->doctor->id;
+
+       $consultations = Consultation::where('doctor_id', $doctorId)->get();
+
+       return view('doctor.medicalRecords', compact('consultations'));
     }
 
     /**

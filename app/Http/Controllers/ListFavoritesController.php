@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\listFavorites;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListFavoritesController extends Controller
 {
@@ -47,9 +48,15 @@ class ListFavoritesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(listFavorites $listFavorites)
+    public function show()
     {
-        //
+
+
+    $patientId = Auth::user()->patient->id;
+    
+    $favorites = listFavorites::where('patient_id', $patientId)->get();
+    
+    return view('patient.favorite', compact('favorites'));
     }
 
     /**

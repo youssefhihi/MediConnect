@@ -9,6 +9,7 @@ class consultation extends Model
 {
     protected $fillable = [
         'numOfDays',
+        'created_at',
         'symptoms',
         'doctor_id',
         'patient_id',
@@ -25,7 +26,7 @@ class consultation extends Model
         }
         public function appointment()
         {
-            return $this->belongsTO(Appointment::class,'appointment_id');
+            return $this->belongsTo(Appointment::class,'appointment_id');
         }
         public function medications()
         {
