@@ -20,4 +20,8 @@ class Medication extends Model
         return $this->belongsTo(Speciality::class, 'speciality_id');
     }
 
+    public function consultations()
+    {
+        return $this->belongsToMany(consultation::class);
+    }
 }

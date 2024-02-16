@@ -9,6 +9,7 @@ use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\MedicationController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ListFavoritesController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,8 +46,10 @@ Route::middleware(['auth', 'role:doctor'])->group(function () {
          //appointment  
     Route::get('/dashboard/appointment/{doctorID}', [AppointmentController::class, 'appointment'])->name('DoctorAppointment');
     Route::get('/appointment/appointment_reserved/{doctorId}', [AppointmentController::class, 'show'])->name('appointment.show');
-    Route::get('/dashboard/consultation', [ConsultationController::class, 'index'])->name('consulation');
-    
+               //consultation
+     Route::get('/dashboard/consultation/{appointment}', [ConsultationController::class, 'index'])->name('consultation');
+     Route::post('/dashboard/consultation/AddConsultation', [ConsultationController::class, 'store'])->name('consultation.store');
+
             Route::get('/dashboard', function () {
                 return view('doctor.dashboard');
             })->name('dashboard');
@@ -62,7 +65,7 @@ Route::middleware(['auth', 'role:patient'])->group(function () {
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/listFavorites', [ListFavoritesController::class, 'store'])->name('favorite.store');
     Route::delete('/listFavorites', [ListFavoritesController::class, 'destroy'])->name('favorite.delete');
-    
+    Route::get('/patient/certificate', [ConsultationController::class, 'show'])->name('consultations.show');
   
 });
 

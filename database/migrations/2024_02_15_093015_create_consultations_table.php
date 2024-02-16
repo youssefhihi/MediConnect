@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
-            $table->int('NumOfDays');
+            $table->integer('NumOfDays');
             $table->string('symptoms');
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');  
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade'); 
-            $table->unsignedBigInteger('medication_id');
-            $table->foreign('medication_id')->references('id')->on('medications')->onDelete('cascade'); 
+            $table->unsignedBigInteger('appointment_id');
+            $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade'); 
+           
             $table->timestamps();
         });
     }

@@ -59,5 +59,8 @@ class User extends Authenticatable
     {
         return $this->morphOne(Picture::class, 'pictureable');
     }
-
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
 }
