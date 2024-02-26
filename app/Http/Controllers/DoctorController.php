@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 use App\Models\Speciality;
+use App\Models\Appointment;
 use App\Models\Medication;
+use App\Models\consultation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     public function index()
     {
-        return view('doctor.dashboard');
+        
+        $medicationsCount = Medication::count();
+        $specialtiesCount = Speciality::count();
+        $consultationCount = Consultation::count();
+       
+        return view('doctor.dashboard',compact('medicationsCount','specialtiesCount','consultationCount'));
+            
+       
             
     }
     public function showMediCation(){
@@ -18,4 +28,5 @@ class DoctorController extends Controller
        
         return view('doctor.medication', compact('specialities', 'Medications'));
     }
+  
 }

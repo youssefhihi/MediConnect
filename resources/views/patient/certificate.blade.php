@@ -1,4 +1,5 @@
 <x-patient-layout>
+  
 <h1 class=" mt-8 text-4xl font-semibold text-center ">Certificate Medical</h1>
 <div class=" mt-10 flex flex-col gap-10">
  @foreach ($consultations as $consultation )

@@ -55,10 +55,9 @@ Route::middleware(['auth', 'role:doctor'])->group(function () {
      Route::get('/dashboard/consultation/{appointment}', [ConsultationController::class, 'index'])->name('consultation');
      Route::post('/dashboard/consultation/AddConsultation', [ConsultationController::class, 'store'])->name('consultation.store');
      Route::get('/dashboard/medical-records', [ConsultationController::class, 'showForDoctor'])->name('records.show');
+     Route::get('/dashboard', [DoctorController::class, 'index'])->name('dashboard');
 
-            Route::get('/dashboard', function () {
-                return view('doctor.dashboard');
-            })->name('dashboard');
+         
 });
 
 Route::middleware(['auth', 'role:patient'])->group(function () {
@@ -67,6 +66,7 @@ Route::middleware(['auth', 'role:patient'])->group(function () {
     Route::get('/doctor/appointment/{doctorID}', [AppointmentController::class, 'takeAppointment'])->name('PatientAppointment');
     Route::post('/appointment', [AppointmentController::class, 'storeAppointment'])->name('appointment');
     Route::get('/doctors/{specialty}', [PatientController::class, 'filterDoctors'])->name('doctor.sort');
+    Route::get('/appointment-urgent', [AppointmentController::class, 'index'])->name('urgent');
     Route::get('/doctor/{doctorId}', [PatientController::class, 'doctorProfile'])->name('doctor.profile');
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/listFavorites', [ListFavoritesController::class, 'store'])->name('favorite.store');

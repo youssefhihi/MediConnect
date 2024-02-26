@@ -1,5 +1,12 @@
 <x-patient-layout>
-    <!-- https://gist.github.com/goodreds/5b8a4a2bf11ff67557d38c5e727ea86c -->
+   
+@if(session('success'))
+    <script>
+        setTimeout(function() {
+            alert('{{ session('success') }}');
+        }, 100);
+    </script>
+@endif
 
 <div
     class=" mx-4  sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto  bg-white shadow-xl rounded-lg text-gray-900">
@@ -7,7 +14,7 @@
         <img class="object-cover object-top w-full" src='https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' alt='Mountain'>
     </div>
     <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-        <img class="object-cover object-center h-32" src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' alt='Woman looking front'>
+        <img class="object-cover object-center h-32" src="{{asset('imgs/doctor.png')}}"  alt='Woman looking front'>
     </div>
     <div class="text-center mt-2">
         <h2 class="font-semibold">{{$doctor->user->name}}</h2>

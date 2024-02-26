@@ -2,12 +2,42 @@
 
 namespace App\Http\Controllers;
 use App\Models\Appointment;
+use App\Models\Doctor;
+use App\Models\Speciality;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 
 class AppointmentController extends Controller
 {
+    public function index(){
+    
+        $appointments_reserved = DB::table('appointments')
+        ->join('doctors', 'doctors.id', '=', 'appointments.doctor_id')
+        ->join('specialities', 'specialities.id', '=', 'doctors.speciality_id')
+        ->join('users', 'users.id', '=', 'doctors.user_id')
+        ->select('appointments.*', 'specialities.name', 'users.name')
+        ->where('specialities.name', 'general')
+        ->get();
+  
+     
+        $doctorID = Doctor::whereHas('specialty', function ($query) {
+            $query->where('name', 'general');
+        })->pluck('id');
+        
+        // dd($doctorID);
+    
+
+        $result = DB::select("SHOW COLUMNS FROM appointments WHERE Field = 'booking_time'");
+        preg_match("/^enum\((.*)\)$/", $result[0]->Type, $matches);
+    
+        $appointments = array();
+        foreach (explode(',', $matches[1]) as $value) {
+            $appointments[] = trim($value, "'");
+        }
+        
+        return view('patient.appointmentUrgent', compact('appointments_reserved','appointments','doctorID'));
+    }
     public function appointment($doctorID){
         
         $result = DB::select("SHOW COLUMNS FROM appointments WHERE Field = 'booking_time'");

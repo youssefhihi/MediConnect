@@ -8,7 +8,7 @@
       <div class="flex flex-wrap justify-center gap-16 ">
       @foreach ($doctors as $doctor)
     <a href="{{ route('doctor.profile', ['doctorId' => $doctor->id]) }}" class="p-7 rounded-2xl border border-blue-600 text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
-        <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar">
+        <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{asset('imgs/doctor.png')}}" alt="Bonnie Avatar">
         <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {{ $doctor->user->name }}
         </h3>

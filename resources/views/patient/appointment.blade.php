@@ -1,4 +1,11 @@
 <x-patient-layout>
+  @if(session('success'))
+    <script>
+        setTimeout(function() {
+            alert('{{ session('success') }}');
+        }, 100);
+    </script>
+@endif
     <h4 class="text-2xl text-blue-700 font-mono text-center font-semibold mt-10">Appointements log</h4>
 <form action="{{ route('appointment') }}" method="post" class="flex flex-col gap-6 rounded-lg shadow-xl mt-4 p-8 mb-10 ">
       @csrf

@@ -16,7 +16,7 @@
               @endforeach       
 </div>
 @else
-<h1 class="font_semibold text-3xl text-center mt-20">Any Appointment you have now</h1>
+<h1 class="font_semibold text-3xl text-center mt-20">You don't have any appointments</h1>
 @endif
 </div>
 

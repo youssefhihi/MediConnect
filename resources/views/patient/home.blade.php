@@ -6,7 +6,7 @@
 		<div class="container mx-auto text-center text-white">
 			<h1 class="text-5xl font-medium mb-6">Welcome to Our Cilinc</h1>
 			<p class="text-xl mb-12 max-w-3xl mx-auto">Experience the highest quality healthcare services tailored to your needs, delivered by our team of experienced and compassionate doctors</p>
-			<a href="#" class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">Appointment</a>
+			<a href="{{route('urgent')}}" class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-red-600">Appointment Urgent</a>
 		</div>
 	</section>
 </div>
