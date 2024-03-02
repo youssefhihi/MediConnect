@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
-    public function filterDoctors(Speciality $specialty) {
-        $doctors = Doctor::whereHas('specialty', function($query) use ($specialty) {
-            $query->where('id', $specialty->id);
-        })->get();
-    
-        return view('patient.doctor', compact('doctors'));
-    }
-    
+        public function filterDoctors(Speciality $specialty) {
+            $doctors = Doctor::whereHas('specialty', function($query) use ($specialty) {
+                $query->where('id', $specialty->id);
+            })->get();
+        
+            return view('patient.doctor', compact('doctors'));
+        }
+        
    
     public function doctorProfile($doctorId) {
         $doctor = Doctor::findOrFail($doctorId);
